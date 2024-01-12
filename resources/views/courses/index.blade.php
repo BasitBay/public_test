@@ -11,7 +11,7 @@
                     <p class="mb-2">{{ $course->description }}</p>
                     <p class="mb-2"><strong>Price:</strong> ${{ $course->price }}</p>
                     <p class="mb-2"><strong>Participants:</strong> 0/{{ $course->max_participants }}</p>
-                    <a href="#" class="btn btn-primary">Edit</a> <a href="#" class="btn btn-secondary">Delete</a>
+                    <a href="{{ route('courses.edit', ['course' => $course->id]) }}" class="btn btn-primary">Edit</a> <a href="#" class="btn btn-secondary">Delete</a>
                 </div>
             </div>
         @endforeach

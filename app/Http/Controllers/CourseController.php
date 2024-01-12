@@ -22,14 +22,16 @@ class CourseController extends Controller
         return view('layouts.course_layout', compact('totalCourses'));
     }
 
+    //Display the creation form
     public function create()
     {
         return view('courses.create');
     }
 
+    //Parameters for the creation form
     public function store(Request $request)
     {
-        // Validation logic here
+        // Validation requirements
         $request->validate([
             'title' => 'required|min:2|max:256',
             'participants' => 'required|integer',
@@ -45,4 +47,24 @@ class CourseController extends Controller
 
         return redirect()->route('courses.index')->with('success', 'Course created successfully');
     }
+
+    public function edit(Course $course)
+    {
+        return view('courses.edit', compact('course'));
+    }
+
+    public function update(Request $request, Course $course)
+    {
+        // Validation logic here
+
+        $course->update([
+            'title' => $request->input('title'),
+            'description' => $request->input('description'),
+            'price' => $request->input('price'),
+            'max_participants' => $request->input('participants'),
+        ]);
+
+        return redirect()->route('courses.index')->with('success', 'Course updated successfully');
+    }
+
 }
