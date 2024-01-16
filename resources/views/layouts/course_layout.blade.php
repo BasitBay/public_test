@@ -13,10 +13,10 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{route('dashboard')}}">Dashboard</a>
+                    <a class="nav-link" href="{{route('dashboard')}}">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="{{route('courses.index')}}">Courses</a>
+                    <a class="nav-link active" aria-current="page" href="{{route('courses.index')}}">Courses</a>
                     </li>
                 </ul>
                 <span class="navbar-text" style="margin-right: 2%;">
@@ -27,6 +27,12 @@
             </div>
         </div>
     </nav>
+    <div class="nav-scroller bg-body shadow-sm" style="position: relative;">
+      <nav class="nav" aria-label="Secondary navigation" style="padding-left: 20%;">
+        <a class="nav-link active" aria-current="page" href="{{route('courses.index')}}" style="font-size: large;">All courses <span class="badge text-bg-light rounded-pill align-text-bottom">20</span></a>
+        <a class="nav-link" href="{{route('courses.create')}}" style="font-size: large;">Add new course</a>
+      </nav>
+    </div>
     @yield('content')
   </body>
 </html>

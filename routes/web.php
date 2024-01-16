@@ -22,9 +22,17 @@ Route::get('/login', [log_reg_manager::class, 'login'])->name(name: 'login');
 Route::post('/login', [log_reg_manager::class, 'loginPost'])->name(name: 'login.post');
 Route::get('/logout', [log_reg_manager::class, 'logOut'])->name(name: 'logout');
 
+Route::get('/courses', [CourseController::class, 'displayTotalCourses']);
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/courses', [CourseController::class, 'index'])
 ->middleware(['auth', 'verified'])->name('courses.index');
+
+Route::get('/courses/create', [CourseController::class, 'create'])
+->middleware(['auth', 'verified'])->name('courses.create');
+
+Route::post('/courses', [CourseController::class, 'store'])->name('courses.store');
