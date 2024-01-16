@@ -48,6 +48,7 @@ class CourseController extends Controller
         return redirect()->route('courses.index')->with('success', 'Course created successfully');
     }
 
+    //Display edit course page
     public function edit(Course $course)
     {
         return view('courses.edit', compact('course'));
@@ -55,7 +56,7 @@ class CourseController extends Controller
 
     public function update(Request $request, Course $course)
     {
-        // Validation logic here
+        // Update requirements
 
         $course->update([
             'title' => $request->input('title'),
@@ -65,6 +66,20 @@ class CourseController extends Controller
         ]);
 
         return redirect()->route('courses.index')->with('success', 'Course updated successfully');
+    }
+
+    //Display confirmation page
+    public function confirmDelete(Course $course)
+    {
+        return view('courses.delete', compact('course'));
+    }
+
+    //Delete course function
+    public function destroy(Course $course)
+    {
+        $course->delete();
+
+        return redirect()->route('courses.index')->with('success', 'Course deleted successfully');
     }
 
 }
