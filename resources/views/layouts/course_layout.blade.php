@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title', 'Auth')</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      .nav-link:hover {
+        background-color: #007bff;
+        color: #fff;
+      }
+      body {
+            background-color: #f2f2f2;
+        }
+    </style>
   </head>
   <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -29,7 +38,7 @@
     </nav>
     <div class="nav-scroller bg-body shadow-sm" style="position: relative;">
       <nav class="nav" aria-label="Secondary navigation" style="padding-left: 20%;">
-        <a class="nav-link active" aria-current="page" href="{{route('courses.index')}}" style="font-size: large;">All courses <span class="badge text-bg-light rounded-pill align-text-bottom">20</span></a>
+        <a class="nav-link active" aria-current="page" href="{{route('courses.index')}}" style="font-size: large;">All courses <span class="badge text-bg-light rounded-pill align-text-bottom">{{ $totalCourses }}</span></a>
         <a class="nav-link" href="{{route('courses.create')}}" style="font-size: large;">Add new course</a>
       </nav>
     </div>

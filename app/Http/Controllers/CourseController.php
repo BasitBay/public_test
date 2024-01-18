@@ -8,24 +8,20 @@ use App\Models\Course;
 class CourseController extends Controller
 {
     //Retreive courses from the database by date using the Course model & send them to courses page
+    //Retreive total number of courses to display them in the navbar
     public function index()
     {
         $courses = Course::orderBy('created_at', 'desc')->get();
-        return view('courses.index', compact('courses'));
-    }
-
-    //Retreive total number of courses to display them later in the navbar
-    public function displayTotalCourses()
-    {
         $totalCourses = Course::count();
-
-        return view('layouts.course_layout', compact('totalCourses'));
+    
+        return view('courses.index', compact('courses', 'totalCourses'));
     }
 
-    //Display the creation form
+    //Display the course creation page
     public function create()
     {
-        return view('courses.create');
+        $totalCourses = Course::count();
+        return view('courses.create', compact('totalCourses'));
     }
 
     //Parameters for the creation form
@@ -51,11 +47,18 @@ class CourseController extends Controller
     //Display edit course page
     public function edit(Course $course)
     {
-        return view('courses.edit', compact('course'));
+        $totalCourses = Course::count();
+        return view('courses.edit', compact('course', 'totalCourses'));
     }
 
     public function update(Request $request, Course $course)
     {
+        // Validation requirements
+        $request->validate([
+            'title' => 'required|min:2|max:256',
+            'participants' => 'required|integer',
+            'price' => 'nullable',
+        ]);
         // Update requirements
 
         $course->update([
@@ -71,7 +74,8 @@ class CourseController extends Controller
     //Display confirmation page
     public function confirmDelete(Course $course)
     {
-        return view('courses.delete', compact('course'));
+        $totalCourses = Course::count();
+        return view('courses.delete', compact('course', 'totalCourses'));
     }
 
     //Delete course function

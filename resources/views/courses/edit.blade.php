@@ -10,25 +10,25 @@
                 <!-- Title Input -->
                 <div class="mb-3">
                     <label for="title" class="form-label"><strong>Title</strong></label>
-                    <input type="text" class="form-control" id="title" name="title" required minlength="2" maxlength="256">
+                    <input type="text" class="form-control" id="title" name="title" required minlength="2" maxlength="256" value="{{ $course->title }}">
                 </div>
 
                 <!-- Description Input -->
                 <div class="mb-3">
                     <label for="description" class="form-label"><strong>Description</strong></label>
-                    <textarea class="form-control" id="description" name="description" rows="4"></textarea>
+                    <textarea class="form-control" id="description" name="description" rows="4">{{ $course->description }}</textarea>
                 </div>
 
                 <!-- Price Input -->
                 <div class="mb-3">
                     <label for="price" class="form-label"><strong>Price</strong></label>
-                    <input type="number" class="form-control" id="price" name="price" required>
+                    <input type="number" class="form-control" id="price" name="price" value="{{ $course->price }}" required>
                 </div>
 
                 <!-- Participants Input -->
                 <div class="mb-3">
                     <label for="participants" class="form-label"><strong>Participants</strong></label>
-                    <input type="number" class="form-control" id="participants" name="participants" required>
+                    <input type="number" class="form-control" id="participants" name="participants" value="{{ $course->max_participants }}" required>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Submit</button>

@@ -4,6 +4,18 @@
     <div class="container" style="margin-left: 20%; width: 70%;">
         <h1 class="mb-4" style="padding-top: 20px; font-size:xx-large;">Available Courses</h1>
 
+        @if (session('success'))
+            <div class="alert alert-success" id="successMessage">
+                {{ session('success') }}
+            </div>
+
+            <script>
+                setTimeout(function() {
+                    document.getElementById('successMessage').style.display = 'none';
+                }, 4000);
+            </script>
+        @endif
+
         @foreach($courses as $course)
             <div class="mb-4">
                 <div class="course-list-item border p-4 shadow bg-white rounded">

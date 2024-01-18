@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      .nav-link:hover {
+        background-color: #007bff;
+        color: #fff;
+      }
+      body {
+            background-color: #f2f2f2;
+        }
+    </style>
   </head>
   <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -33,7 +42,7 @@
         {{ __('Dashboard') }}
     </h1>
 
-    <div class="py-12" style="margin-left: 25%; ">
+    <div class="py-12" style="margin-left: 25%; width: 20%;">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
