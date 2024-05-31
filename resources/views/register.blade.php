@@ -35,6 +35,7 @@
             </div>
             <button type="submit" class="btn btn-primary">Register</button>
             <p style="margin-top: 2%;">If you already have an account <a href="{{route('login')}}">login here</a></p>
+            <p style="margin-top: 2%;">Are you a guest? <a href="{{route('courses.guest')}}">Click here</a></p>
         </form>
     </div>
 @endsection

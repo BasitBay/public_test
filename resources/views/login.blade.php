@@ -18,7 +18,7 @@
             @if (session() -> has ('success'))
             <div class="alert alert-success">{{session('success')}}</div>
             @endif
-        </div>
+        </div> 
         @csrf
         <h1>Login to continue</h1>
             <div class="mb-3" style="margin-top: 10%;">
@@ -31,6 +31,7 @@
             </div>
             <button type="submit" class="btn btn-primary">Login</button>
             <p style="margin-top: 2%;">If you do not have an account <a href="{{route('register')}}">register here</a></p>
+            <p style="margin-top: 2%;">Are you a guest? <a href="{{route('courses.guest')}}">Click here</a></p>
         </form>
     </div>
 @endsection

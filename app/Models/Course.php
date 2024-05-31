@@ -10,4 +10,9 @@ class Course extends Model
     //Array to specify which attributes of the model can be mass-assigned
     use HasFactory;
     protected $fillable = ['title', 'description', 'price', 'max_participants'];
+
+    public function enrollments()
+    {
+        return $this->hasMany(Enrollment::class);
+    }
 }

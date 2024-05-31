@@ -31,7 +31,7 @@
                     <input type="number" class="form-control" id="participants" name="participants" value="{{ $course->max_participants }}" required>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Save</button>
                 <a href="{{ route('courses.index') }}" class="btn btn-secondary">Cancel</a>
             </form>
         </div>

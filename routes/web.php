@@ -45,3 +45,11 @@ Route::put('/courses/{course}', [CourseController::class, 'update'])->name('cour
 Route::get('/courses/{course}/delete', [CourseController::class, 'confirmDelete'])->name('courses.delete');
 
 Route::delete('/courses/{course}', [CourseController::class, 'destroy'])->name('courses.destroy');
+
+Route::get('/courses/guest', [CourseController::class, 'guest'])->name('courses.guest');
+
+Route::get('/courses/{course}/enroll', [CourseController::class, 'showEnrollmentForm'])->name('courses.enroll');
+Route::post('/courses/{course}/enroll', [CourseController::class, 'enroll'])->name('courses.enroll.submit');
+
+Route::get('/courses/{course}', [CourseController::class, 'show'])
+->middleware(['auth', 'verified'])->name('courses.show');
